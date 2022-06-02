@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/YouLearn/static/css/main.859de028.css",
+    "main.js": "/YouLearn/static/js/main.fc78f4ae.js",
+    "index.html": "/YouLearn/index.html",
+    "main.859de028.css.map": "/YouLearn/static/css/main.859de028.css.map",
+    "main.fc78f4ae.js.map": "/YouLearn/static/js/main.fc78f4ae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.859de028.css",
+    "static/js/main.fc78f4ae.js"
+  ]
+}
