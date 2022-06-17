@@ -1,18 +1,27 @@
 {
   "name": "youtubecourse",
   "version": "0.1.0",
+  "homepage": "https://guillaume-rygn.github.io/YouLearn",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "get-youtube-id": "^1.0.1",
+    "gh-pages": "^4.0.0",
+    "jotai": "^1.7.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
+    "react-uuid": "^1.0.2",
+    "react-youtube": "^9.0.2",
+    "sass": "^1.52.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

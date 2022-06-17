@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
+
+body{
+  background-color: rgb(250, 250, 250);
+  font-family: 'Poppins', sans-serif;
+  color: #272343;
+}
+
+.searchsection{
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+input{
+  width: 50%;
+  border-radius: 15px;
+  border: 1px solid rgb(104, 104, 104);
+  padding: 5px 15px;
+}
+
+.mainwrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.videocontent{
+  text-align: center;
+  width: 100%;
+  flex-basis: 70vw;
+}
+
+iframe{
+  width: 100%    !important;
+  height: auto   !important;
+  aspect-ratio: 16/9;
+}
+
+button{
+  margin: 0 5px;
+}
+
+.wrapcard{
+  max-height: 90vh;
+  overflow-y: scroll;
+  background-color: rgb(253, 253, 253);
+  margin-left: 5px;
+  flex-basis: 350px;
+
+}
+
+.card{
+  background-color: rgb(253, 253, 253);
+  padding: 10px 20px;
+  margin: 10px 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.card progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  border: none;
+  background: #e3f6f5;
+}
+/* style the progress bar with the same background color used for the svg */
+.card progress::-webkit-progress-bar {
+  background: none;
+  border: none;
+}
+.card progress::-webkit-progress-value {
+  background: #ffd803;
+}
+.card progress::-moz-progress-bar {
+  background: #ffd803;
+}
+.card progress::-ms-fill {
+  background: #ffd803;
+}
+
+.card-active{
+  background-color: #bae8e8;
+}
+
+.duration{
+  font-size: 12px;
+}
+
+.flexnote{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.seek{
+  cursor: pointer;
+}
