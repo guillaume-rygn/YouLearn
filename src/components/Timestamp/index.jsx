@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import YouTube from "react-youtube";
 import ButtonTime from '../ButtonTime';
 import API_KEY_YOU_TUBE from '../../API.js';
+import { currentTimeAtom } from "../../store/currenttime";
+import { useAtomValue } from "jotai";
 
 var getYouTubeID = require("get-youtube-id");
 
@@ -13,6 +15,7 @@ const Timestamp = () => {
     const playerRef = useRef(null);
     const [notes, setNotes] = useState(localStorage.notes ? JSON.parse(localStorage.notes) : []
     );
+    const currentTime = useAtomValue(currentTimeAtom);
 
     useEffect(() => {
       localStorage.setItem("notes", JSON.stringify(notes));
@@ -58,7 +61,7 @@ const Timestamp = () => {
     }
 
     const seektotime = (e) => {
-      playerRef.current.internalPlayer.seekTo(Number(localStorage.getItem('currentTime')) + Number(e.target.attributes[0].value));
+      playerRef.current.internalPlayer.seekTo(currentTime + Number(e.target.attributes[0].value));
     }
 
     const duration = (e) => {
@@ -136,6 +139,7 @@ const Timestamp = () => {
             opts={opts} 
             onReady={currentTimeVideo}
             ref={playerRef}
+            className="videoyoutube"
             />
             <div>
               <button onClick={seektotime} data-attributes={-30}>retour 30s</button>

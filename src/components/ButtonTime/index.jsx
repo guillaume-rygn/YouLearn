@@ -1,10 +1,12 @@
+import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
+import { currentTimeAtom } from "../../store/currenttime";
 
 const ButtonTime = ({data, playerRef, stopTime, index}) => {
 
   const [timeSecond, setTimeSecond] = useState(0);
   const [timeSecondStop, setTimeSecondStop] = useState(0);
-  const[currentTime, setCurrentTime] = useState(localStorage.getItem('currentTime') ? localStorage.getItem('currentTime') : 0);
+  const[currentTime, setCurrentTime] = useAtom(currentTimeAtom)
   const patern = /([0-9][0-9]:[0-9][0-9]:[0-9][0-9])|([0-9]:[0-9][0-9]:[0-9][0-9])|([0-9][0-9]:[0-9][0-9])|([0-9]:[0-9][0-9])/;
   const [stateSection, setStateSection] = useState(localStorage.getItem(`statesection${index}`)? localStorage.getItem(`statesection${index}`) : 'notcompleted');
   
@@ -63,6 +65,8 @@ const ButtonTime = ({data, playerRef, stopTime, index}) => {
             setCurrentTime(response);
             localStorage.setItem('currentTime', response);
           })
+          .then(() => console.log(currentTime)
+          )
         },1000)
       }
       if(currentTime >= timeSecondStop){

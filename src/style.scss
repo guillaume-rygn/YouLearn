@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
 
+* {
+  padding: 0;
+}
+
 body{
+  margin: 0;
   background-color: rgb(250, 250, 250);
   font-family: 'Poppins', sans-serif;
   color: #272343;
@@ -31,6 +36,36 @@ input{
   flex-basis: 70vw;
 }
 
+@media only screen and (max-width: 1236px) {
+  .videocontent{
+    text-align: center;
+    width: 100%;
+    flex-basis: 100vw;
+    margin-bottom: 10px;
+  }
+
+  .wrapcard{
+    max-height: 90vh;
+    overflow-y: scroll;
+    background-color: rgb(253, 253, 253);
+    flex-basis: 100%;
+    max-width: 500px;
+  
+  }
+}
+
+@media only screen and (min-width: 1237px) {
+
+  .wrapcard{
+    max-height: 90vh;
+    overflow-y: scroll;
+    background-color: rgb(253, 253, 253);
+    margin-left: 5px;
+    flex-basis: 350px;
+  
+  }
+}
+
 iframe{
   width: 100%    !important;
   height: auto   !important;
@@ -41,14 +76,7 @@ button{
   margin: 0 5px;
 }
 
-.wrapcard{
-  max-height: 90vh;
-  overflow-y: scroll;
-  background-color: rgb(253, 253, 253);
-  margin-left: 5px;
-  flex-basis: 350px;
 
-}
 
 .card{
   background-color: rgb(253, 253, 253);
