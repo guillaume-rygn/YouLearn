@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import YouTube from "react-youtube";
 import ButtonTime from '../ButtonTime';
 import API_KEY_YOU_TUBE from '../../API.js';
-import { currentTimeAtom } from "../../store/currenttime";
-import { useAtomValue } from "jotai";
+import { currentTimeAtom, globalTimeAtom } from "../../store/currenttime";
+import { useAtom, useAtomValue } from "jotai";
 
 var getYouTubeID = require("get-youtube-id");
 
@@ -15,11 +15,22 @@ const Timestamp = () => {
     const playerRef = useRef(null);
     const [notes, setNotes] = useState(localStorage.notes ? JSON.parse(localStorage.notes) : []
     );
-    const currentTime = useAtomValue(currentTimeAtom);
+    const [globalTime, setGlobalTime] = useAtom(globalTimeAtom);
 
     useEffect(() => {
       localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes]);
+
+    useEffect(
+      () => {
+            setInterval(() => {
+            playerRef.current.internalPlayer.getCurrentTime()
+            .then((response) => {
+              setGlobalTime(response);
+              localStorage.setItem('currentTime', response);
+            })
+          },1000)  
+      }, [])
     
 
     useEffect(
@@ -61,7 +72,10 @@ const Timestamp = () => {
     }
 
     const seektotime = (e) => {
-      playerRef.current.internalPlayer.seekTo(currentTime + Number(e.target.attributes[0].value));
+      console.log("ici")
+      console.log(typeof globalTime);
+      console.log(globalTime)
+      playerRef.current.internalPlayer.seekTo(Number(globalTime) + Number(e.target.attributes[0].value));
     }
 
     const duration = (e) => {

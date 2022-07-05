@@ -63,10 +63,7 @@ const ButtonTime = ({data, playerRef, stopTime, index}) => {
           playerRef.current.internalPlayer.getCurrentTime()
           .then((response) => {
             setCurrentTime(response);
-            localStorage.setItem('currentTime', response);
           })
-          .then(() => console.log(currentTime)
-          )
         },1000)
       }
       if(currentTime >= timeSecondStop){
