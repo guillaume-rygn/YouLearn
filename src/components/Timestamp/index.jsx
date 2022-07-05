@@ -134,7 +134,8 @@ const Timestamp = () => {
               notes.map((note,index) => <Notes note={note} playerRef={playerRef} key={index}/>) 
             : 
               null}
-            </div>         
+            </div>    
+                 
   
 
           <div className="wrapcard">
